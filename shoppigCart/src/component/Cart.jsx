@@ -1,54 +1,58 @@
-import React,{useState} from 'react';
-import { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';   
 import "../styles/cart.css";
 
-const Cart = ({cart, setCart, handleChange}) => {
-    const [price, setPrice] = useState(0);
+const Cart = ({ cart, setCart, handleChange }) => {
+  const [price, setPrice] = useState(0);
+  const navigate = useNavigate();  
 
-    const handlePrice = ()=>{
-        let ans = 0;
-        cart.map((item)=>(
-            ans += item.amount * item.price
-        ))
-        setPrice(ans);
-    }
+  const handlePrice = () => {
+    let ans = 0;
+    cart.map((item) => (ans += item.amount * item.price));
+    setPrice(ans);
+  };
 
-    const handleRemove = (id) =>{
-        const arr = cart.filter((item)=>item.id !== id);
-        setCart(arr);
-        // handlePrice();
-    }
+  const handleRemove = (id) => {
+    const arr = cart.filter((item) => item.id !== id);
+    setCart(arr);
+  };
 
-    useEffect(()=>{
-        handlePrice();
-    })
+  useEffect(() => {
+    handlePrice();
+  }, [cart]); 
 
   return (
     <article>
-        {
-            cart?.map((item)=>(
-                <div className="cart_box" key={item.id}>
-                    <div className="cart_img">
-                        <img src={item.img} />
-                        <p>{item.title}</p>
-                    </div>
-                    <div>
-                        <button onClick={()=>handleChange(item, +1)}> + </button>
-                        <button>{item.amount}</button>
-                        <button onClick={()=>handleChange(item, -1)}> - </button>
-                    </div>
-                    <div>
-                        <span>{item.price}</span>
-                        <button onClick={()=>handleRemove(item.id)} >Remove</button>
-                    </div>
-                </div>
-            ))}
-        <div className='total'>
-            <span>Total Price of your Cart</span>
-            <span>Rs - {price}</span>
-        </div>
-    </article>
-  )
-}
+      {
+        cart?.map((item) => (
+          <div className="cart_box" key={item.id}>
+            <div className="cart_img">
+              <img src={item.img} alt={item.title} />
+              <p>{item.title}</p>
+            </div>
+            <div>
+              <button onClick={() => handleChange(item, +1)}> + </button>
+              <button>{item.amount}</button>
+              <button onClick={() => handleChange(item, -1)}> - </button>
+            </div>
+            <div>
+              <span>{item.price}</span>
+              <button onClick={() => handleRemove(item.id)}>Remove</button>
+            </div>
+          </div>
+        ))
+      }
+      <div className="total">
+        <span>Total Price of your Cart</span>
+        <span>Rs - {price}</span>
+      </div>
 
-export default Cart
+      {/* ✅ Back button */}
+      <div className="back_btn">
+        <button onClick={() => navigate("/")}>⬅ Back to Home</button>
+      </div>
+    </article>
+  );
+};
+
+export default Cart;

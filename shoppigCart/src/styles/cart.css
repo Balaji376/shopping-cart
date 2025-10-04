@@ -1,69 +1,164 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
-*{
-    margin: 0;
-    padding: 0;
+body {
+  background: linear-gradient(135deg, #f0f9ff, #e0f7fa);
 }
-article{
-    width: 60%;
-    margin: auto;
+
+article {
+  width: 80%;
+  margin: 40px auto;
+  padding: 30px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+  animation: fadeIn 0.6s ease-in-out;
 }
-.cart_box img{
-    width: 50px;
-    height: 50px;
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
-.cart_img{
-    display: flex;
-    width: 400px;
+
+.cart_box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+  padding: 20px 24px;
+  border-radius: 12px;
+  background: #f9fafb;
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s ease;
 }
+
+.cart_box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+  background: #f1f5f9;
+}
+
+.cart_box img {
+  width: 70px;
+  height: 70px;
+  border-radius: 12px;
+  object-fit: cover;
+  border: 2px solid #e0e7ff;
+}
+
+.cart_img {
+  display: flex;
+  align-items: center;
+  width: 320px;
+}
+
 .cart_img p {
-    font-weight: bold;
-    margin-left: 10px;
+  font-weight: 600;
+  margin-left: 15px;
+  font-size: 1.1rem;
+  color: #1e293b;
 }
-.cart_box{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 20px;
-    border-bottom: 2px solid skyblue;
-    padding-bottom: 5px;
+
+.cart_box div:nth-child(2) {
+  display: flex;
+  gap: 8px;
+  align-items: center;
 }
-.cart_box div:nth-child(2) button{
-    padding: 5px 10px;
-    font-weight: bold;
-    margin-right: 5px;
+
+.cart_box div:nth-child(2) button {
+  padding: 6px 14px;
+  font-weight: bold;
+  border: 1px solid #cbd5e1;
+  background: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.25s ease;
 }
-.cart_box div:nth-child(3) button{
-    padding: 5px 10px;
-    font-weight: bold;
-    letter-spacing: 2px;
-    border:none;
-    outline: none;
-    color: white;
-    background-color: skyblue;
-    border-radius: 5px;
-    cursor: pointer;
+
+.cart_box div:nth-child(2) button:hover {
+  background: #e2e8f0;
+  transform: scale(1.05);
 }
-.cart_box div:nth-child(3) button:hover{
-    background-color: darkseagreen;
+
+.cart_box div:nth-child(3) {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
-.cart_box div:nth-child(3) span{
-    background-color: lightgreen;
-    padding: 5px 10px;
-    border-radius: 5px;
-    margin-right: 10px;
+
+.cart_box div:nth-child(3) span {
+  background: #dcfce7;
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-weight: 600;
+  color: #15803d;
+  font-size: 1rem;
 }
-.total{
-    display: flex;
-    justify-content: space-between;
+
+.cart_box div:nth-child(3) button {
+  padding: 10px 18px;
+  font-weight: 600;
+  border: none;
+  outline: none;
+  color: white;
+  background: linear-gradient(135deg, #0ea5e9, #2563eb);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
-.total span:nth-child(1){
-    font-size: 2rem;
-    color: skyblue;
-    font-weight: bold;
-    letter-spacing: 2px;
+
+.cart_box div:nth-child(3) button:hover {
+  background: linear-gradient(135deg, #16a34a, #15803d);
+  transform: translateY(-2px) scale(1.05);
 }
-.total span:nth-child(2){
-    font-size: 2rem;
-    color: green;
-    font-weight: bold;
+
+.total {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+  padding: 25px;
+  background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+  border-radius: 12px;
+  border: 1px solid #86efac;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.total span:nth-child(1) {
+  font-size: 1.6rem;
+  color: #2563eb;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+.total span:nth-child(2) {
+  font-size: 1.6rem;
+  color: #16a34a;
+  font-weight: bold;
+}
+
+.back_btn {
+  margin-top: 30px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.back_btn button {
+  padding: 12px 22px;
+  border: none;
+  outline: none;
+  background: linear-gradient(135deg, #f97316, #ea580c);
+  color: white;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.back_btn button:hover {
+  background: linear-gradient(135deg, #ea580c, #9a3412);
+  transform: translateY(-2px) scale(1.05);
 }

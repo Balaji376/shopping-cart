@@ -1,8 +1,9 @@
 
 import React from 'react'
 
-import list from '../data'
+
 import Cards from './Card'
+import list from '../data/data'
 
 const Amazon = ({handleClick}) => {
   return (
